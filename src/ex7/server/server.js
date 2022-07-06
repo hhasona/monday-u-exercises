@@ -1,7 +1,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const api = require("./server/routes/api")
-console.log("Starting server...")
+
 const main = async () => {
   const app = express()
 
