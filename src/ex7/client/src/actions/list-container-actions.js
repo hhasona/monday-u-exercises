@@ -1,6 +1,12 @@
-import actionTypes from "../actions/constants"
+import actionTypes from "./constants"
 
+const viewTodos = () => ({
+  type: actionTypes.VIEW_TODOS,
+})
 
-const initialState = {}
-
+export const viewTodosAction = () => {
+  return (dispatch) => {
+    dispatch(viewTodos())
+  }
+}
 
