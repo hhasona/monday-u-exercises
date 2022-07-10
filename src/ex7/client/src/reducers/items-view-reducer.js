@@ -1,12 +1,16 @@
-import actionTypes from "../actions/constants";
+import actionTypes from "../actions/constants"
 
-const initialState = {
-};
+const initialState = {}
 
 const itemsViewReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.VIEW_TODOS:
+      return {
+        ...state,
+        ...action.payload.itemsView,
+      }
     default:
-      return state;
+      return state
   }
-};
-export default itemsViewReducer;
+}
+export default itemsViewReducer
