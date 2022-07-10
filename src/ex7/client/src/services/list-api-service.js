@@ -4,10 +4,12 @@ export default class ListApiService {
    * @returns {Promise<{ name: string, id: number, status: bool }[]>}
    */
   static async getItems() {
-    const response = await fetch('/items');
-    const todos = await response.json();
+    // implenent using redux
+    
+    const response = await fetch("/items")
+    const todos = await response.json()
 
-    return todos;
+    return todos
   }
 
   /**
@@ -16,15 +18,15 @@ export default class ListApiService {
    * @returns {Promise<object>}
    */
   static async postItem(itemName) {
-    const response = await fetch('/item', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item: itemName })
-    });
+    const response = await fetch("/item", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ item: itemName }),
+    })
 
-    const item = await response.json();
+    const item = await response.json()
 
-    return item;
+    return item
   }
 
   /**
@@ -34,12 +36,12 @@ export default class ListApiService {
    */
   static async toggleDone(item) {
     const response = await fetch(`/item/${item.id}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item })
-    });
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ item }),
+    })
 
-    return response.ok;
+    return response.ok
   }
 
   /**
@@ -48,12 +50,12 @@ export default class ListApiService {
    * @returns {Promise<boolean>}
    */
   static async deleteItem(item) {
-    const response = await fetch('/item', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item })
-    });
+    const response = await fetch("/item", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ item }),
+    })
 
-    return response.ok;
+    return response.ok
   }
 }
